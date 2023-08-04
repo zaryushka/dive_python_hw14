@@ -53,7 +53,7 @@ class Calculator:
                     raise NegativeValueError
                 result = math.sqrt(num1)
 
-            print(f'Результат: {result}')
+            return f'Результат: {result}'
 
         if operation in list_operation_simple:
             try:
@@ -74,7 +74,7 @@ class Calculator:
                     raise ZeroDivisionError
                 result = num1 / num2
 
-            print(f'Результат: {result}')
+            return f'Результат: {result}'
 
         if operation not in list_operation_scientific and operation not in list_operation_simple:
             raise TypeError
@@ -84,10 +84,10 @@ my_calc = Calculator()
 class TestCalc(unittest.TestCase):
 
     def test_sum(self):
-        self.assertEqual(my_calc.calc('+', 2, 3), None)
+        self.assertEqual(my_calc.calc('+', 2, 3), 'Результат: 5.0')
 
     def test_sub(self):
-        self.assertEqual(my_calc.calc('-', 16, 10), None)
+        self.assertEqual(my_calc.calc('-', 16, 10), 'Результат: 6.0')
 
     def test_div_bad(self):
         self.assertRaises(ZeroDivisionError, my_calc.calc, '/', 16, 0)

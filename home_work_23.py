@@ -52,7 +52,7 @@ class Calculator:
                     raise NegativeValueError
                 result = math.sqrt(num1)
 
-            print(f'Результат: {result}')
+            return f'Результат: {result}'
 
         if operation in list_operation_simple:
             try:
@@ -73,7 +73,7 @@ class Calculator:
                     raise ZeroDivisionError
                 result = num1 / num2
 
-            print(f'Результат: {result}')
+            return f'Результат: {result}'
 
         if operation not in list_operation_scientific and operation not in list_operation_simple:
             raise TypeError
@@ -123,7 +123,7 @@ def test_type_args_simple(*args):
         my_calc = Calculator()
         my_calc.calc('+', 'a', 2)
 
-# if __name__ == '__main__':
-#     pytest.main(['-v'])
+if __name__ == '__main__':
+    pytest.main(['-v'])
 
 # pytest .\home_work_21.py -vv - запуск в терминале
